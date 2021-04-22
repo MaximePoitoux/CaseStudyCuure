@@ -1,6 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Pagination from "@material-ui/lab/Pagination";
+import { NavLink } from "react-router-dom";
 
 const useStyles = makeStyles({
   wrapper: {
@@ -11,8 +11,25 @@ const useStyles = makeStyles({
     left: 0,
     display: "flex",
     justifyContent: "center",
+    alignItems: "center",
     padding: "15px 0",
-    // background: "white",
+  },
+  navLink: {
+    padding: "10px",
+    margin: "5px",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    textDecoration: "none",
+    color: "white",
+  },
+  active: {
+    background: "black",
+    fontWeight: "bold",
+    opacity: "0.5",
+    borderRadius: "50%",
+    height: "10px",
+    width: "10px",
   },
 });
 
@@ -21,7 +38,34 @@ export default function Footer() {
 
   return (
     <div className={classes.wrapper}>
-      <Pagination count={4} />
+      <NavLink
+        activeClassName={classes.active}
+        className={classes.navLink}
+        to="/vitamins"
+      >
+        1
+      </NavLink>
+      <NavLink
+        activeClassName={classes.active}
+        className={classes.navLink}
+        to="/minerals"
+      >
+        2
+      </NavLink>
+      <NavLink
+        activeClassName={classes.active}
+        className={classes.navLink}
+        to="/plants"
+      >
+        3
+      </NavLink>
+      <NavLink
+        activeClassName={classes.active}
+        className={classes.navLink}
+        to="/specialities"
+      >
+        4
+      </NavLink>
     </div>
   );
 }
